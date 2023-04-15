@@ -1,0 +1,8 @@
+cloud:
+    aws:
+        region: eu-west-1
+        accessId: 
+        accessKey:
+orders:
+    queue:
+        name: inbound_order
