@@ -23,6 +23,12 @@ public class AwsSQSConfiguration {
     @Value("${cloud.aws.region:eu-west-1}")
     private String awsRegion;
 
+    @Value("${cloud.aws.accessKey:eu-west-1}")
+    private String awsAccessKey;
+
+    @Value("${cloud.aws.secretKey:eu-west-1}")
+    private String awsSecretKey;
+
     @Bean
     @Primary
     public AmazonSQSAsync amazonSQSAsync() {
@@ -35,7 +41,7 @@ public class AwsSQSConfiguration {
 
     @Bean
     public AWSCredentialsProvider credentialsProvider() {
-        return new AWSStaticCredentialsProvider(new BasicAWSCredentials(awsRegion, awsRegion));
+        return new AWSStaticCredentialsProvider(new BasicAWSCredentials(awsAccessKey, awsSecretKey));
     }
 
     @Bean
